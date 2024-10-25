@@ -20,12 +20,18 @@ nav ul {
   justify-content: center;
 }
 
+nav ul li a:hover {
+  color: #ff4800; /* Change this to your desired hover color */
+  text-decoration: underline; /* Optional: adds an underline on hover */
+  font-size: 25px;
+}
+
 nav ul li {
   margin: 0 1rem;
 }
 
 nav ul li a {
-  color: black;
+  color: white;
   text-decoration: none;
   font-size: 1.1rem;
   display: flex;
