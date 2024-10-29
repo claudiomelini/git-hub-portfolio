@@ -17,3 +17,29 @@ document.querySelectorAll('nav ul li a').forEach(anchor => {
     });
   });
 });
+
+//Tema chiaro scuro
+const themeToggle = document.querySelector("#theme-toggle");
+const body = document.body;
+
+// Check for saved theme in localStorage
+if (localStorage.getItem("theme") === "dark") {
+  body.classList.add("dark-theme");
+  themeToggle.textContent = "🌙"; // Icona della luna per il tema scuro
+} else {
+  themeToggle.textContent = "🌞"; // Icona del sole per il tema chiaro
+}
+
+themeToggle.addEventListener("click", () => {
+  // Toggle la classe dark-theme su body
+  body.classList.toggle("dark-theme");
+
+  // Cambia l'icona del pulsante
+  if (body.classList.contains("dark-theme")) {
+    themeToggle.textContent = "🌙";
+    localStorage.setItem("theme", "dark");
+  } else {
+    themeToggle.textContent = "🌞";
+    localStorage.setItem("theme", "light");
+  }
+});

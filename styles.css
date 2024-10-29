@@ -75,3 +75,26 @@ button {
   font-size: 25px;
 }
 
+/* Tema chiaro (default) */
+body {
+  background-color: #ffffff;
+  color: #000000;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+/* Tema scuro */
+.dark-theme {
+  background-color: #1e1e1e;
+  color: #ffffff;
+}
+
+/* Stile per il pulsante di switch */
+#theme-toggle {
+  position: fixed;
+  top: 50px;
+  right: 20px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 30px;
+}
