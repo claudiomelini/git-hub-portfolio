@@ -98,3 +98,14 @@ body {
   cursor: pointer;
   font-size: 30px;
 }
+.parallax {
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+}
+
+/* Altri stili per migliorare l’aspetto della pagina */
+section {
+  padding: 50px;
+  text-align: center;
+}

@@ -43,3 +43,14 @@ themeToggle.addEventListener("click", () => {
     localStorage.setItem("theme", "light");
   }
 });
+//Parallax
+window.addEventListener("scroll", () => {
+  const parallaxElements = document.querySelectorAll(".parallax");
+
+  parallaxElements.forEach(element => {
+    const speed = parseFloat(element.getAttribute("data-speed"));
+    const yPos = window.scrollY * speed;
+
+    element.style.transform = `translateY(${yPos}px)`;
+  });
+});
