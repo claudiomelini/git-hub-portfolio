@@ -18,20 +18,40 @@ document.querySelectorAll('nav ul li a').forEach(anchor => {
   });
 });
 
-//Tema chiaro scuro
+// Parallax
 const themeToggle = document.querySelector("#theme-toggle");
 const body = document.body;
 
-// Check for saved theme in localStorage
-if (localStorage.getItem("theme") === "dark") {
-  body.classList.add("dark-theme");
-  themeToggle.textContent = "🌙"; // Icona della luna per il tema scuro
-} else {
-  themeToggle.textContent = "🌞"; // Icona del sole per il tema chiaro
+// Funzione per aggiornare le immagini parallax in base al tema
+function updateParallaxImages() {
+  const parallaxElements = document.querySelectorAll(".parallax");
+
+  parallaxElements.forEach(element => {
+    const lightImage = element.getAttribute("data-image-light");
+    const darkImage = element.getAttribute("data-image-dark");
+    const imageUrl = body.classList.contains("dark-theme") ? darkImage : lightImage;
+
+    // Log per debug
+    console.log(`Immagine caricata: ${imageUrl}`);
+
+    // Imposta l'immagine di sfondo
+    element.style.backgroundImage = `url(${imageUrl})`;
+  });
 }
 
+// Inizializza il tema al caricamento della pagina
+if (localStorage.getItem("theme") === "dark") {
+  body.classList.add("dark-theme");
+  themeToggle.textContent = "🌙";
+} else {
+  themeToggle.textContent = "🌞";
+}
+
+// Aggiorna le immagini al caricamento
+updateParallaxImages();
+
+// Event listener per il cambio tema
 themeToggle.addEventListener("click", () => {
-  // Toggle la classe dark-theme su body
   body.classList.toggle("dark-theme");
 
   // Cambia l'icona del pulsante
@@ -42,15 +62,7 @@ themeToggle.addEventListener("click", () => {
     themeToggle.textContent = "🌞";
     localStorage.setItem("theme", "light");
   }
-});
-//Parallax
-window.addEventListener("scroll", () => {
-  const parallaxElements = document.querySelectorAll(".parallax");
 
-  parallaxElements.forEach(element => {
-    const speed = parseFloat(element.getAttribute("data-speed"));
-    const yPos = window.scrollY * speed;
-
-    element.style.transform = `translateY(${yPos}px)`;
-  });
+  // Aggiorna le immagini di sfondo parallax
+  updateParallaxImages();
 });

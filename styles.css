@@ -5,10 +5,21 @@
   font-family: Arial, sans-serif;
 }
 
+/* Tema chiaro (default) */
+body {
+  background-color: rgb(200, 194, 194);
+  color: #000000;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+/* Tema scuro */
+.dark-theme {
+  background-color: #3b048d;
+  color: #ffffff;
+}
 
 body {
   line-height: 1.6;
-  background-color: #eee8e8;
   font-size: 30px;
 }
 
@@ -43,7 +54,6 @@ section {
 }
 
 #home {
-  background: url('header-bg.jpg') no-repeat center center/cover;
   color: black;
   padding: 5rem 0;
   text-align: center;
@@ -71,41 +81,35 @@ button {
   color: white;
   cursor: pointer;
 }
+
 #introduction {
   font-size: 25px;
-}
-
-/* Tema chiaro (default) */
-body {
-  background-color: #ffffff;
-  color: #000000;
-  transition: background-color 0.3s, color 0.3s;
-}
-
-/* Tema scuro */
-.dark-theme {
-  background-color: #1e1e1e;
-  color: #ffffff;
 }
 
 /* Stile per il pulsante di switch */
 #theme-toggle {
   position: fixed;
-  top: 50px;
-  right: 20px;
+  top: 5px;
+  right: 70px;
   background: none;
   border: none;
   cursor: pointer;
   font-size: 30px;
 }
+
+#theme-toggle:hover {
+  font-size: 45px;
+}
+
 .parallax {
   background-size: cover;
   background-position: center;
   background-attachment: fixed;
-}
-
-/* Altri stili per migliorare l’aspetto della pagina */
-section {
-  padding: 50px;
+  color: white;
   text-align: center;
+  display: flex;
+  align-items: flex-start; /* Cambiato da center a flex-start */
+  justify-content: center;
+  flex-direction: column; /* Aggiunto per posizionare gli elementi verticalmente */
+  padding-top: 100px; /* Aggiungi padding per distanziare il testo dall'immagine */
 }
